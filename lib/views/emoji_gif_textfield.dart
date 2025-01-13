@@ -69,6 +69,7 @@ class EmojiGifTextField extends StatelessWidget {
     this.restorationId,
     this.scribbleEnabled = true,
     this.enableIMEPersonalizedLearning = true,
+    this.cursorOpacityAnimates,
   })  : assert(obscuringCharacter.length == 1),
         smartDashesType = smartDashesType ??
             (obscureText ? SmartDashesType.disabled : SmartDashesType.enabled),
@@ -128,6 +129,7 @@ class EmojiGifTextField extends StatelessWidget {
   final AppPrivateCommandCallback? onAppPrivateCommand;
   final List<TextInputFormatter>? inputFormatters;
   final bool? enabled;
+  final bool? cursorOpacityAnimates;
   final double cursorWidth;
   final double? cursorHeight;
   final Radius? cursorRadius;
@@ -196,6 +198,7 @@ class EmojiGifTextField extends StatelessWidget {
           //            paste: true,
           //          )));
           return TextField(
+            cursorOpacityAnimates: cursorOpacityAnimates,
             controller: controller,
             focusNode: focusNode,
             decoration: decoration,
