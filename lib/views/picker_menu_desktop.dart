@@ -266,7 +266,7 @@ class _PickerMenuState extends State<PickerMenuDesktop> {
       },
       customWidget: searchController.text == ""
           ? null
-          : (config, state) {
+          : (config, state, showSearchBar) {
               return GridView.builder(
                 padding: EdgeInsets.zero,
                 itemCount: filterEmojiEntities.length,
@@ -304,33 +304,6 @@ class _PickerMenuState extends State<PickerMenuDesktop> {
                 },
               );
             },
-      config: Config(
-        columns: 7,
-        emojiSizeMax: 32 * (Platform.I.isIOS ? 1.30 : 1.0),
-        verticalSpacing: 0,
-        horizontalSpacing: 0,
-        gridPadding: EdgeInsets.zero,
-        initCategory: Category.RECENT,
-        bgColor: widget.colors.backgroundColor,
-        indicatorColor: widget.colors.indicatorColor,
-        iconColor: Colors.grey,
-        iconColorSelected: widget.colors.menuSelectedIconColor,
-        backspaceColor: widget.colors.backgroundColor,
-        skinToneDialogBgColor: Colors.white,
-        skinToneIndicatorColor: Colors.grey,
-        enableSkinTones: true,
-        recentsLimit: 28,
-        noRecents: widget.texts.noRecents ??
-            const Text(
-              "No Recents",
-              style: TextStyle(fontSize: 20, color: Colors.grey),
-              textAlign: TextAlign.center,
-            ), // Needs to be const Widget
-        loadingIndicator: const SizedBox.shrink(), // Needs to be const Widget
-        tabIndicatorAnimDuration: kTabScrollDuration,
-        categoryIcons: const CategoryIcons(),
-        buttonMode: ButtonMode.MATERIAL,
-      ),
     );
   }
 
